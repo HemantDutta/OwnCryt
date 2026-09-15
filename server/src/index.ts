@@ -3,6 +3,7 @@ import cors from "cors";
 import express from "express";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { config, isProd } from "./config.js";
@@ -14,7 +15,17 @@ import { createSubmissionService } from "./services/submissions/index.js";
 const app = express();
 const submissions = createSubmissionService();
 const here = path.dirname(fileURLToPath(import.meta.url));
-const clientDist = path.resolve(here, "../../client/dist");
+
+function resolveClientDist(): string | null {
+  const candidates = [
+    path.resolve(here, "../../client/dist"),
+    path.resolve(process.cwd(), "../client/dist"),
+    path.resolve(process.cwd(), "client/dist"),
+  ];
+  return candidates.find((dir) => existsSync(path.join(dir, "index.html"))) ?? null;
+}
+
+const clientDist = resolveClientDist();
 
 app.disable("x-powered-by");
 app.use(
@@ -42,7 +53,7 @@ const submitLimit = rateLimit({
 });
 
 app.get("/api/health", (_req, res) => {
-  res.json({ ok: true });
+  res.json({ ok: true, client: Boolean(clientDist) });
 });
 
 app.use("/api/interests", submitLimit, interestsRouter(submissions));
@@ -53,7 +64,7 @@ app.use("/api", (_req, res) => {
   res.status(404).json({ error: "Not found." });
 });
 
-if (isProd) {
+if (clientDist) {
   app.use(
     express.static(clientDist, {
       index: false,
@@ -88,6 +99,13 @@ app.use(
   },
 );
 
-app.listen(config.port, () => {
-  console.info(`OwnCryt server listening on :${config.port} (${config.nodeEnv})`);
+app.listen(config.port, "0.0.0.0", () => {
+  console.info(
+    `OwnCryt server listening on :${config.port} (${config.nodeEnv})`,
+  );
+  console.info(
+    clientDist
+      ? `Serving React app from ${clientDist}`
+      : "React app not found (client/dist/index.html missing). GET / will 404 until the client is built.",
+  );
 });
