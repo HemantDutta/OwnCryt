@@ -1,0 +1,14 @@
+node_modules
+dist
+build
+.env
+.env.local
+*.log
+uploads
+server/data/submissions
+.DS_Store
+Thumbs.db
+.vscode
+*.tsbuildinfo
+client/dist
+server/dist

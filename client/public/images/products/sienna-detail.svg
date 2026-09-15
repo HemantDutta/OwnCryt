@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="220 160 340 420" width="1200" height="1600" role="img">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d9c2a6"/>
+      <stop offset="55%" stop-color="#c4a07c"/>
+      <stop offset="100%" stop-color="#d9c2a6"/>
+    </linearGradient>
+    
+    <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" result="n"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.18"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+    <radialGradient id="spot" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.12"/>
+    </radialGradient>
+  </defs>
+  <rect width="780" height="1200" fill="url(#g)"/>
+  <rect width="780" height="1200" fill="url(#spot)"/>
+  <rect width="780" height="1200" filter="url(#grain)" fill="#c4a07c"/>
+  <g fill="#b08962" fill-opacity="0.92" transform="translate(0,40)">
+    <path d="M318 200 C330 168 360 150 390 150 C420 150 450 168 462 200 L470 250 L500 760 L508 1000 C508 1030 470 1048 390 1048 C310 1048 272 1030 272 1000 L280 760 L310 250 Z"/>
+  </g>
+</svg>

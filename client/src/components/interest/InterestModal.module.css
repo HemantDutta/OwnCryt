@@ -1,0 +1,19 @@
+.form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.copy {
+  color: var(--charcoal-soft);
+}
+
+.error {
+  color: var(--danger);
+  margin: 0;
+}
+
+.sizeNote {
+  margin: -0.35rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}

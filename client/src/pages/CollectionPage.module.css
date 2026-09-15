@@ -1,0 +1,156 @@
+.page {
+  padding: 2.5rem 1.25rem 4rem;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.intro {
+  max-width: 36rem;
+  margin-bottom: 2rem;
+}
+
+.intro h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+.intro p {
+  margin-top: 0.9rem;
+  color: var(--charcoal-soft);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  position: sticky;
+  top: calc(var(--header-h) - 1px);
+  background: color-mix(in srgb, var(--ivory) 92%, transparent);
+  padding: 0.5rem 0;
+  z-index: 5;
+}
+
+.desktopFilters {
+  display: none;
+}
+
+.desktopFilters button,
+.chipRow button,
+.sheetBtn,
+.apply,
+.sheetActions button,
+.empty button {
+  min-height: 44px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--charcoal);
+  padding: 0 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  cursor: pointer;
+}
+
+.desktopFilters .on,
+.chipRow .on {
+  background: var(--charcoal);
+  color: var(--ivory);
+  border-color: var(--charcoal);
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sort select {
+  min-height: 44px;
+  font-size: 16px;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  padding: 0 0.6rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 0.7rem;
+}
+
+.sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  align-items: end;
+}
+
+.sheetBackdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(26, 23, 20, 0.45);
+  cursor: pointer;
+}
+
+.sheetPanel {
+  position: relative;
+  z-index: 1;
+  background: var(--paper);
+  padding: 1.4rem 1.2rem 1.2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.sheetPanel h2 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sheetActions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.sheetActions .apply {
+  flex: 1;
+  background: var(--charcoal);
+  color: var(--ivory);
+}
+
+.empty {
+  padding: 3rem 0;
+}
+
+@media (min-width: 900px) {
+  .sheetBtn {
+    display: none;
+  }
+
+  .desktopFilters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem 1.1rem;
+  }
+}

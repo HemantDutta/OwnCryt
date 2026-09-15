@@ -1,0 +1,30 @@
+:root {
+  --ivory: #f6f1ea;
+  --ivory-deep: #efe6d8;
+  --paper: #fbf8f3;
+  --charcoal: #1a1714;
+  --charcoal-soft: #3f3a35;
+  --muted: #6f675e;
+  --burgundy: #6b2d3c;
+  --burgundy-deep: #4e1f2c;
+  --espresso: #3d2b24;
+  --line: rgba(26, 23, 20, 0.12);
+  --line-strong: rgba(26, 23, 20, 0.28);
+  --focus: #6b2d3c;
+  --danger: #8a2b2b;
+  --ok: #2d4a3e;
+  --shadow: 0 24px 60px rgba(26, 23, 20, 0.12);
+  --font-serif: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  --font-sans: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --header-h: 4.25rem;
+  --announce-h: 2.25rem;
+  --space: 1rem;
+  --max: 72rem;
+  --narrow: 42rem;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --header-h: 4.75rem;
+  }
+}

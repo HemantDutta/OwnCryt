@@ -1,0 +1,166 @@
+.hero {
+  position: relative;
+  min-height: calc(100svh - var(--header-h) - var(--announce-h));
+  background: var(--espresso);
+  color: var(--ivory);
+  display: grid;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  min-height: 32rem;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 1;
+  align-self: end;
+  padding: 3.5rem 1.25rem 3rem;
+  max-width: 44rem;
+  background: linear-gradient(transparent, rgba(26, 17, 14, 0.72));
+}
+
+.eyebrow {
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
+.hero h1,
+.editHead h2,
+.statement h2,
+.bannerCopy h2,
+.custom h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 8vw, 5.4rem);
+}
+
+.lede {
+  margin: 1rem 0 1.5rem;
+  max-width: 28rem;
+  font-size: 1.05rem;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ghost {
+  border-color: var(--ivory);
+  color: var(--ivory);
+}
+
+.ghost:hover {
+  background: var(--ivory);
+  color: var(--charcoal);
+}
+
+.edit,
+.statement,
+.custom {
+  padding: 4.5rem 1.25rem 2rem;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.editHead,
+.statement {
+  max-width: 40rem;
+  margin-bottom: 2rem;
+}
+
+.editHead h2,
+.statement h2,
+.bannerCopy h2,
+.custom h2 {
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  margin-bottom: 0.75rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem 0.7rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 0 0;
+}
+
+.statement p,
+.custom p,
+.editHead p,
+.bannerCopy p {
+  color: var(--charcoal-soft);
+  font-size: 1.05rem;
+}
+
+.banner {
+  position: relative;
+  min-height: 28rem;
+  color: var(--ivory);
+  display: grid;
+  align-items: end;
+}
+
+.banner img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bannerCopy {
+  position: relative;
+  padding: 3rem 1.25rem;
+  max-width: 40rem;
+  background: linear-gradient(transparent, rgba(26, 17, 14, 0.75));
+}
+
+.custom {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.custom img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+@media (min-width: 800px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.75rem 1.1rem;
+  }
+
+  .heroCopy,
+  .bannerCopy {
+    padding: 4.5rem 3rem;
+  }
+
+  .custom {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .custom img {
+    max-height: 36rem;
+  }
+}

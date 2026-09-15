@@ -1,0 +1,19 @@
+.bar {
+  min-height: var(--announce-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.4rem 1rem;
+  background: var(--espresso);
+  color: var(--ivory);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.bar a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
